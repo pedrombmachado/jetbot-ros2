@@ -32,13 +32,13 @@ I used the Xiaor Geek Jetbot as a base platform and modified it to include a wid
 * Motor Drivers - In this case, installed from the jetbot's [repository](https://github.com/NVIDIA-AI-IOT/jetbot/).
 
 # Installation
-<!-- 0. Dependencies:
+0. Dependencies:
     ```bash
 
-        sudo apt install ros-eloquent-navigation2
-        sudo apt install ros-eloquent-nav2-bringup
+        sudo apt install ros-eloquent-navigation2 -y
+        sudo apt install ros-eloquent-nav2-bringup -y
 
-    ``` -->
+    ``` 
 1. Clone this repo and its submodules.
     ```bash
     git clone --recurse-submodules https://github.com/jdgalviss/jetbot-ros2.git
@@ -48,7 +48,8 @@ I used the Xiaor Geek Jetbot as a base platform and modified it to include a wid
     1. SLAM-TOOLBOX
         ```bash
         cd jetbot-ros2/dev_ws/src
-        git clone -b eloquent-devel git@github.com:stevemacenski/slam_toolbox.git 
+        git clone -b eloquent-devel https://github.com/SteveMacenski/slam_toolbox.git
+
         ```
 
     2. Navigation2
@@ -58,14 +59,17 @@ I used the Xiaor Geek Jetbot as a base platform and modified it to include a wid
 
     3. m-explore
         ```bash
-        git clone -b eloquent https://github.com/robo-friends/m-explore-ros2.git
+        git clone https://github.com/robo-friends/m-explore-ros2.git
+        cd m-explore-ros2/
+        git checkout fe4ff6d
+        cd ../..
         ```
 
     4. BehaviorTree.CPP
         ```bash
         git clone https://github.com/BehaviorTree/BehaviorTree.CPP.git
         cd BehaviorTree.CPP
-        git checkout 3.5.1
+        git checkout v3.8
         cd ../..
         ```
 
@@ -82,6 +86,7 @@ I used the Xiaor Geek Jetbot as a base platform and modified it to include a wid
 4. Install aiortc for webrtc support.
     ```bash
     pip3 install crc32c==2.0
+    sudo apt-get install libopus-dev -y
     pip3 install aiortc==0.9.28
     pip3 install aiohttp==3.6.2
     ```
